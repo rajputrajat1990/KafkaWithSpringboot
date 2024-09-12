@@ -1,0 +1,44 @@
+plugins {
+    id 'org.springframework.boot' version "3.3.3"
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+}
+
+group = 'examples'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://packages.confluent.io/maven'
+    }
+}
+
+dependencies {
+// https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
+    implementation 'org.apache.kafka:kafka-clients:3.8.0'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    testImplementation 'org.slf4j:slf4j-simple:2.0.16'
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // https://mvnrepository.com/artifact/com.launchdarkly/okhttp-eventsource
+    implementation 'com.launchdarkly:okhttp-eventsource:4.1.1'
+
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // OkHttp for Server-Sent Events (SSE)
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.squareup.okhttp3:okhttp-sse:4.9.3'
+}
+
+test {
+    useJUnitPlatform()
+}
